@@ -28,7 +28,7 @@ namespace API.J.Movies.Repository
 
         public async Task<bool> CreateCategoryAsync(Category category)
         {
-            category.CreateDate = DateTime.UtcNow;
+            category.CreatedDate = DateTime.UtcNow;
             await _context.Categories.AddAsync(category);
             return await SaveAsync();
         }

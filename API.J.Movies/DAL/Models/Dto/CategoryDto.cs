@@ -9,7 +9,7 @@ namespace API.J.Movies.DAL.Models.Dto
         [Required(ErrorMessage = "El nombre de la categoría es obligatorio.")]
         [MaxLength(100, ErrorMessage = "El número maximo de carecteres es de 100.")] public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
     }
 }
