@@ -5,13 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.J.Movies.Repository
 {
-    public class CategoryRespository : ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly ApplicationDbContext _context;
-        public CategoryRespository(ApplicationDbContext context)
+
+        public CategoryRepository(ApplicationDbContext context)
         {
             _context = context;
         }
+
         public async Task<bool> CategoryExistsByIdAsync(int id)
         {
             return await _context.Categories
@@ -35,11 +37,13 @@ namespace API.J.Movies.Repository
 
         public async Task<bool> DeleteCategoryAsync(int id)
         {
-            var category = await GetCategoryByIdAsync(id);
-            if (category != null)
+            var category = await GetCategoryAsync(id); //primero consulto que sí exista la categoría
+
+            if (category == null)
             {
-                return false;
+                return false; //la categoría no existe
             }
+
             _context.Categories.Remove(category);
             return await SaveAsync();
         }
@@ -52,12 +56,11 @@ namespace API.J.Movies.Repository
                 .ToListAsync();
         }
 
-        public async Task<Category> GetCategoryByIdAsync(int id)
+        public async Task<Category> GetCategoryAsync(int id) //async y el await
         {
             return await _context.Categories
                 .AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Id == id);
-
+                .FirstOrDefaultAsync(c => c.Id == id); //lambda expressions
         }
 
         public async Task<bool> UpdateCategoryAsync(Category category)

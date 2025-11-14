@@ -18,7 +18,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 // Dependecy Injection for Repositories
 
-builder.Services.AddScoped<ICategoryRepository, CategoryRespository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
