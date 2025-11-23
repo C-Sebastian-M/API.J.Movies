@@ -2,7 +2,7 @@
 
 namespace API.J.Movies.DAL.Models.Dto
 {
-    public class CategoryCreateDto
+    public class CategoryCreateUpdateDto
     {
         [Required(ErrorMessage = "El nombre de la categoría es obligatorio.")]
         [MaxLength(100, ErrorMessage = "El número maximo de carecteres es de 100.")]

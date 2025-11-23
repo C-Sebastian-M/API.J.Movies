@@ -27,7 +27,7 @@ namespace API.J.Movies.Services
             throw new NotImplementedException();
         }
 
-        public async Task<CategoryDto> CreateCategoryAsync(CategoryCreateDto categoryCreateDto)
+        public async Task<CategoryDto> CreateCategoryAsync(CategoryCreateUpdateDto categoryCreateDto)
         {
             //Validar si la categoría ya existe
             var categoryExists = await _categoryRepository.CategoryExistsByNameAsync(categoryCreateDto.Name);
@@ -91,7 +91,7 @@ namespace API.J.Movies.Services
             return _mapper.Map<CategoryDto>(category);
         }
 
-        public async Task<CategoryDto> UpdateCategoryAsync(int id, CategoryCreateDto categoryDto)
+        public async Task<CategoryDto> UpdateCategoryAsync(int id, CategoryCreateUpdateDto categoryDto)
         {
             var categoryExists = await _categoryRepository.GetCategoryAsync(id);
             if (categoryExists == null)

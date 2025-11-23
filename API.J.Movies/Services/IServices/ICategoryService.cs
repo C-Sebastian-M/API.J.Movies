@@ -1,5 +1,4 @@
-﻿using API.J.Movies.DAL.Models;
-using API.J.Movies.DAL.Models.Dto;
+﻿using API.J.Movies.DAL.Models.Dto;
 
 namespace API.J.Movies.Services.IServices
 {
@@ -7,8 +6,8 @@ namespace API.J.Movies.Services.IServices
     {
         Task<ICollection<CategoryDto>> GetCategoriesAsync();
         Task<CategoryDto> GetCategoryAsync(int id);
-        Task<CategoryDto> CreateCategoryAsync(CategoryCreateDto categoryDto);
-        Task<CategoryDto> UpdateCategoryAsync(int id, CategoryCreateDto categoryDto);
+        Task<CategoryDto> CreateCategoryAsync(CategoryCreateUpdateDto categoryDto);
+        Task<CategoryDto> UpdateCategoryAsync(int id, CategoryCreateUpdateDto categoryDto);
         Task<bool> DeleteCategoryAsync(int id);
         Task<bool> CategoryExistsByIdAsync(int id);
         Task<bool> CategoryExistsByNameAsync(string name);
