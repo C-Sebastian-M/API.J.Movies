@@ -49,6 +49,13 @@ namespace API.J.Movies.Repository
                 .ToListAsync();
         }
 
+        public async Task<bool> MovieExistsByNameAsync(string name)
+        {
+            return await _context.Movies
+                .AsNoTracking()
+                .AnyAsync(c => c.Name == name);
+        }
+
         public async Task<bool> UpdateMovieAsync(Movie movie)
         {
             movie.ModifiedDate = DateTime.UtcNow;

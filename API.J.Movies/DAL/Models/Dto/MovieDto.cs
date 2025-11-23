@@ -11,7 +11,7 @@ namespace API.J.Movies.DAL.Models.Dto
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
         [Required(ErrorMessage = "La duración es obligatoria.")]
-        public string Duration { get; set; }
+        public int Duration { get; set; }
         public string? Description { get; set; }
         [Required(ErrorMessage = "La clasificación es obligatoria.")]
         [MaxLength(10, ErrorMessage = "El número maximo de carecteres es de 10.")]

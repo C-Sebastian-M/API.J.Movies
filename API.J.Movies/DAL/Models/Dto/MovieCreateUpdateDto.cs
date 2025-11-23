@@ -8,7 +8,7 @@ namespace API.J.Movies.DAL.Models.Dto
         [MaxLength(100, ErrorMessage = "El número maximo de carecteres es de 100.")]
         public string Name { get; set; }
         [Required(ErrorMessage = "La duración es obligatoria.")]
-        public string Duration { get; set; }
+        public int Duration { get; set; }
         public string? Description { get; set; }
         [Required(ErrorMessage = "La clasificación es obligatoria.")]
         [MaxLength(10, ErrorMessage = "El número maximo de carecteres es de 10.")]
